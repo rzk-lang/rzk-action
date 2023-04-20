@@ -1,0 +1,22 @@
+name: 'rzk-check'
+description: 'Check rzk formalisations'
+inputs:
+  files:  # files to check
+    description: 'Files to check (*.rzk by default)'
+    required: false
+    default: '*.rzk'
+runs:
+  using: "composite"
+  steps:
+    - name: 🧰 Setup Stack
+      uses: haskell/actions/setup@v1
+      with:
+        enable-stack: true
+
+    - name: 🔨 Install rzk proof assistant
+      run: |
+        stack install rzk
+
+    - name: 🔨 Check rzk files
+      run: |
+        rzk typecheck ${{ inputs.files }}
