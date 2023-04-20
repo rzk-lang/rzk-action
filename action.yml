@@ -14,9 +14,11 @@ runs:
         enable-stack: true
 
     - name: 🔨 Install rzk proof assistant
+      shell: bash
       run: |
         stack install rzk
 
     - name: 🔨 Check rzk files
+      shell: bash
       run: |
         rzk typecheck ${{ inputs.files }}
