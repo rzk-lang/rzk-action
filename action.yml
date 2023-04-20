@@ -14,6 +14,7 @@ runs:
         repo: fizruk/rzk
         tag: v0.2.0
         rename-to: rzk
+        chmod: 0755
 
     - name: 🔨 Check rzk files
       shell: bash
