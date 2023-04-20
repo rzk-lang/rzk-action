@@ -8,15 +8,11 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: 🧰 Setup Stack
-      uses: haskell/actions/setup@v1
-      with:
-        enable-stack: true
-
     - name: 🔨 Install rzk proof assistant
-      shell: bash
-      run: |
-        stack install rzk
+      uses: jaxxstorm/action-install-gh-release@v1.10.0
+      with:
+        repo: fizruk/rzk
+        tag: v0.2.0
 
     - name: 🔨 Check rzk files
       shell: bash
