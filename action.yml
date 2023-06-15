@@ -1,6 +1,10 @@
 name: 'rzk-check'
 description: 'Check rzk formalisations'
 inputs:
+  rzk-version:
+    description: 'Version of Rzk to use'
+    required: false
+    default: 'latest'
   files:  # files to check
     description: 'Files to check (*.rzk by default)'
     required: false
@@ -12,7 +16,7 @@ runs:
       uses: jaxxstorm/action-install-gh-release@v1.10.0
       with:
         repo: fizruk/rzk
-        tag: v0.2.0
+        tag: ${{ inputs.rzk-version }}
         rename-to: rzk
         chmod: 0755
 
