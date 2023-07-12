@@ -1,14 +1,14 @@
-name: 'rzk-check'
-description: 'Check rzk formalisations'
+name: "rzk-check"
+description: "Check rzk formalisations"
 inputs:
   rzk-version:
-    description: 'Version of Rzk to use'
+    description: "Version of Rzk to use"
     required: false
-    default: 'latest'
-  files:  # files to check
-    description: 'Files to check (*.rzk by default)'
+    default: "latest"
+  files: # files to check
+    description: "Files to check (*.rzk by default)"
     required: false
-    default: '*.rzk'
+    default: "*.rzk"
 runs:
   using: "composite"
   steps:
