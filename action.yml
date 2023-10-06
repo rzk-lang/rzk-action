@@ -1,11 +1,14 @@
 name: "rzk-check"
-description: "Check rzk formalisations"
+description: "Typecheck an Rzk project"
+branding:
+  color: "purple"
+  icon: "triangle"  # 2-simplex? :)
 inputs:
   rzk-version:
-    description: "Version of Rzk to use"
+    description: "Version of Rzk to use (latest by default)"
     required: false
     default: "latest"
-  files: # files to check
+  files:
     description: "Files to check (rely on rzk.yaml by default)"
     required: false
     default: ""
