@@ -18,7 +18,7 @@ jobs:
 
         files:
           - ""
-          - src/**.rzk.md
+          - example/1-*.rzk.md
 
     runs-on: ${{ matrix.runner }}
 
