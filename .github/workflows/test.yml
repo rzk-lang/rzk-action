@@ -1,0 +1,37 @@
+name: Test action on a sample project
+
+on:
+  pull_request:
+  push:
+    branches: main
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        runner:
+          - ubuntu-latest
+
+        rzk-version:
+          - v0.6.6
+          - latest
+
+        files:
+          - ""
+          - src/**.rzk.md
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run the action on a sample project
+        id: rzk-check
+        uses: ./
+        with:
+          rzk-version: ${{ matrix.rzk-version }}
+          files: ${{ matrix.files }}
+
+      - name: Check action's output
+        shell: bash
+        run: |
+          echo "rzk-version=${{ steps.rzk-check.outputs.rzk-version }}"
