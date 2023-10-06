@@ -6,7 +6,7 @@ inputs:
     required: false
     default: "latest"
   files: # files to check
-    description: "Files to check"
+    description: "Files to check (rely on rzk.yaml by default)"
     required: false
     default: ""
 runs:
