@@ -5,6 +5,10 @@ branding:
   icon: "triangle"  # 2-simplex? :)
 
 inputs:
+  system-rzk:
+    description: "Use system rzk (instead of downloading binaries)"
+    required: false
+    default: false
   rzk-version:
     description: "Version of Rzk to use (latest by default)"
     required: false
@@ -24,6 +28,7 @@ runs:
   steps:
     - name: 🔨 Install Rzk proof assistant
       uses: jaxxstorm/action-install-gh-release@v1.10.0
+      if: ${{ inputs.system-rzk == 'false' }}
       with:
         repo: fizruk/rzk
         tag: ${{ inputs.rzk-version }}

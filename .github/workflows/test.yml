@@ -35,3 +35,10 @@ jobs:
         shell: bash
         run: |
           echo "rzk-version=${{ steps.rzk-check.outputs.rzk-version }}"
+
+      - name: Run the action again, using previously installed rzk
+        uses: ./
+        with:
+          system-rzk: true
+          rzk-version: "must be ignored!"
+          files: ${{ matrix.files }}
