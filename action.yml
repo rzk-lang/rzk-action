@@ -3,6 +3,7 @@ description: "Typecheck an Rzk project"
 branding:
   color: "purple"
   icon: "triangle"  # 2-simplex? :)
+
 inputs:
   rzk-version:
     description: "Version of Rzk to use (latest by default)"
@@ -12,6 +13,12 @@ inputs:
     description: "Files to check (rely on rzk.yaml by default)"
     required: false
     default: ""
+
+outputs:
+  rzk-version:
+    description: "Version of Rzk used"
+    value: ${{ steps.check-rzk-version.outputs.rzk-version }}
+
 runs:
   using: "composite"
   steps:
@@ -22,6 +29,12 @@ runs:
         tag: ${{ inputs.rzk-version }}
         rename-to: rzk
         chmod: 0755
+
+    - name: Check Rzk version
+      shell: bash
+      id: check-rzk-version
+      run: |
+        echo "rzk-version=$(rzk version)" >> $GITHUB_OUTPUT
 
     - name: 🔨 Check Rzk files
       shell: bash

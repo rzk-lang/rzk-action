@@ -17,7 +17,7 @@ The following example runs `rzk typecheck` on all literate Rzk Markdown files in
 - name: Check all files
   uses: rzk-lang/rzk-action@v1
   with:
-    rzk-version: 0.6.6
+    rzk-version: v0.6.6
     files: src/**/*.rzk.md
 ```
 
@@ -27,3 +27,9 @@ The following example runs `rzk typecheck` on all literate Rzk Markdown files in
 | ------------- | :------: | ---------------------------------------------------- | ------ | ----------------------------- |
 | `rzk-version` |    No    | `rzk` version to use, ex. `latest` or `v0.5.3`       | string | `latest`                      |
 | `files`       |    No    | Files to process, ex. `lib/**/*.rzk src/**/*.rzk.md` | string | Rely on local `rzk.yaml` file |
+
+## Outputs
+
+| Name          | Description                     | Type   |
+| ------------- | ------------------------------- | ------ |
+| `rzk-version` | `rzk` version used, ex. `0.6.6` | string |
