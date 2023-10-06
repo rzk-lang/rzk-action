@@ -6,13 +6,13 @@ inputs:
     required: false
     default: "latest"
   files: # files to check
-    description: "Files to check (*.rzk by default)"
+    description: "Files to check"
     required: false
-    default: "*.rzk"
+    default: ""
 runs:
   using: "composite"
   steps:
-    - name: 🔨 Install rzk proof assistant
+    - name: 🔨 Install Rzk proof assistant
       uses: jaxxstorm/action-install-gh-release@v1.10.0
       with:
         repo: fizruk/rzk
@@ -20,7 +20,7 @@ runs:
         rename-to: rzk
         chmod: 0755
 
-    - name: 🔨 Check rzk files
+    - name: 🔨 Check Rzk files
       shell: bash
       run: |
         rzk typecheck ${{ inputs.files }}
