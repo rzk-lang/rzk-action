@@ -17,6 +17,10 @@ inputs:
     description: "Files to check (rely on rzk.yaml by default)"
     required: false
     default: ""
+  typecheck:
+    description: "Enable typechecking the files (on by default)"
+    required: false
+    default: true
 
 outputs:
   rzk-version:
@@ -43,5 +47,6 @@ runs:
 
     - name: 🔨 Check Rzk files
       shell: bash
+      if: ${{ inputs.typecheck == 'true' }}
       run: |
         rzk typecheck ${{ inputs.files }}
