@@ -8,7 +8,7 @@ Here's a sample definition to typecheck:
 
 ```rzk
 #define modus-ponens
-  (A B : U)
-  : (A → B) → A → B
+  ( A B : U)
+  : ( A → B) → A → B
   := \ f x → f x
 ```

@@ -17,6 +17,14 @@ inputs:
     description: "Files to check (rely on rzk.yaml by default)"
     required: false
     default: ""
+  typecheck:
+    description: "Enable typechecking the files (on by default)"
+    required: false
+    default: true
+  check-formatting:
+    description: "Enable checking the formatting (off by default)"
+    required: false
+    default: false
 
 outputs:
   rzk-version:
@@ -41,7 +49,14 @@ runs:
       run: |
         echo "rzk-version=$(rzk version)" >> $GITHUB_OUTPUT
 
-    - name: 🔨 Check Rzk files
+    - name: 🔨 Check Rzk files definitions
       shell: bash
+      if: ${{ inputs.typecheck == 'true' }}
       run: |
         rzk typecheck ${{ inputs.files }}
+
+    - name: 🔬 Check Rzk files formatting
+      shell: bash
+      if: ${{ inputs.check-formatting == 'true' }}
+      run: |
+        rzk format --check ${{ inputs.files }}
