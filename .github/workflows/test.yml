@@ -13,7 +13,7 @@ jobs:
           - ubuntu-latest
 
         rzk-version:
-          - v0.6.6
+          - v0.7.1
           - latest
 
         files:
@@ -30,6 +30,14 @@ jobs:
         with:
           rzk-version: ${{ matrix.rzk-version }}
           files: ${{ matrix.files }}
+      
+      - name: Check formatting only
+        uses: ./
+        with:
+          rzk-version: ${{ matrix.rzk-version }}
+          files: ${{ matrix.files }}
+          typecheck: false
+          check-formatting: true
 
       - name: Check action's output
         shell: bash
