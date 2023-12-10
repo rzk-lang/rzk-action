@@ -11,13 +11,13 @@ This step runs `rzk typecheck` in the project's root directory, relying on `rzk.
   uses: rzk-lang/rzk-action@v1
 ```
 
-The following example runs `rzk typecheck` on all literate Rzk Markdown files in the `src/` directory, using `rzk` version 0.6.6:
+The following example runs `rzk typecheck` on all literate Rzk Markdown files in the `src/` directory, using `rzk` version 0.7.1:
 
 ```yml
 - name: Check all files
   uses: rzk-lang/rzk-action@v1
   with:
-    rzk-version: v0.6.6
+    rzk-version: v0.7.1
     files: src/**/*.rzk.md
 ```
 
